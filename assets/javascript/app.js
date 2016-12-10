@@ -36,7 +36,10 @@ $("#submit").on("click", function(event){
 
 database.ref().on("child_added", function(snap){
 	var newRow = $("<tr>");
-	newRow.append($("<td>" + snap.val().employeeName + "<td>"));
+	newRow.append($("<td>" + snap.val().employeeName + "</td>"));
+	newRow.append($("<td>" + snap.val().role + "</td>"));
+	newRow.append($("<td>" + snap.val().startDate + "</td><td></td>"));
+	newRow.append($("<td>" + snap.val().monthlyRate + "</td><td></td>"));
 	$("tbody").append(newRow);
 });
 
