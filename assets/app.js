@@ -8,6 +8,26 @@ messagingSenderId: "178524481500"
 };
 firebase.initializeApp(config);
 
-database.ref().set({
-	
+var database = firebase.database();
+var employeeName;
+var role;
+var startDate;
+var monthlyRate;
+
+$("#submit").on("click", function() {
+
+	employeeName = $("#employeeName").val().trim();
+	role = $("#role").val().trim();
+	startDate = $("#startDate").val().trim();
+	monthlyRate = $("#monthlyRate").val().trim();
+
+	console.log(employeeName);
+
+	database.ref().push({
+	    name: employeeName,
+	    role: role,
+	    startDate: startDate,
+	    monthlyRate: monthlyRate
+	});
 });
+
