@@ -19,22 +19,25 @@ var monthlyRate;
 
 $("#submit").on("click", function(event){
 
-	event.preventDefault();
-	console.log("hello");
+	
 	employeeName = $("#employeeName").val().trim();
 	role = $("#role").val().trim();
 	startDate = $("#startDate").val().trim();
 	monthlyRate = $("#monthlyRate").val().trim();
 
-	console.log(employeeName);
-
 	database.ref().push({
-	    name: employeeName,
+	    employeeName: employeeName,
 	    role: role,
 	    startDate: startDate,
 	    monthlyRate: monthlyRate
 	});
 });
 
-// $("document").on("click", "#submit", pushToDatabase);
+
+database.ref().on("child_added", function(snap){
+	var newRow = $("<tr>");
+	newRow.append($("<td>" + snap.val().employeeName + "<td>"));
+	$("tbody").append(newRow);
+});
+
 
