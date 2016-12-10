@@ -19,7 +19,7 @@ var monthlyRate;
 
 $("#submit").on("click", function(event){
 
-	
+	event.preventDefault();
 	employeeName = $("#employeeName").val().trim();
 	role = $("#role").val().trim();
 	startDate = $("#startDate").val().trim();
@@ -31,6 +31,11 @@ $("#submit").on("click", function(event){
 	    startDate: startDate,
 	    monthlyRate: monthlyRate
 	});
+
+	$("#employeeName").val("");
+	$("#role").val("");
+	$("#startDate").val("");
+	$("#monthlyRate").val("");
 });
 
 
