@@ -16,6 +16,7 @@ var monthlyRate;
 
 $("#submit").on("click", function() {
 
+	console.log("hello");
 	employeeName = $("#employeeName").val().trim();
 	role = $("#role").val().trim();
 	startDate = $("#startDate").val().trim();
