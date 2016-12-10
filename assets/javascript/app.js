@@ -1,3 +1,5 @@
+
+
 // Initialize Firebase
 var config = {
 apiKey: "AIzaSyBK8x0wgYA9glOk4f0KzKQ1u6s8--9p7XE",
@@ -14,8 +16,10 @@ var role;
 var startDate;
 var monthlyRate;
 
-$("#submit").on("click", function() {
 
+$("#submit").on("click", function(event){
+
+	event.preventDefault();
 	console.log("hello");
 	employeeName = $("#employeeName").val().trim();
 	role = $("#role").val().trim();
@@ -31,4 +35,6 @@ $("#submit").on("click", function() {
 	    monthlyRate: monthlyRate
 	});
 });
+
+// $("document").on("click", "#submit", pushToDatabase);
 
